@@ -1,12 +1,14 @@
 # The WebTrack Format
 
+![CodeQL](https://github.com/ExploreWilder/WebTrack.js/workflows/CodeQL/badge.svg?branch=main) ![dependencies](https://img.shields.io/david/ExploreWilder/WebTrack.js) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 ## Table of Contents
 
 -   [Why The WebTrack Format?](#why-the-webtrack-format)
 -   [How to Use?](#how-to-use)
 -   [How to Build?](#how-to-build)
 -   [What Technologies?](#what-technologies)
--   [What's Next?](#what-s-next)
+-   [What's Next?](#whats-next)
 
 ## Why The WebTrack Format?
 
