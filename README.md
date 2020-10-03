@@ -1,6 +1,6 @@
 # The WebTrack Format
 
-![CodeQL](https://github.com/ExploreWilder/WebTrack.js/workflows/CodeQL/badge.svg?branch=main) ![dependencies](https://img.shields.io/david/ExploreWilder/WebTrack.js) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+![Node.js CI](https://github.com/ExploreWilder/WebTrack.js/workflows/Node.js%20CI/badge.svg?branch=main) ![CodeQL](https://github.com/ExploreWilder/WebTrack.js/workflows/CodeQL/badge.svg?branch=main) ![dependencies](https://img.shields.io/david/ExploreWilder/WebTrack.js) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Table of Contents
 
@@ -107,5 +107,5 @@ I designed the [file format](SPEC.md) to perfectly fit my needs, but maybe not y
 
 Here you have a list of ideas that could be implemented:
 
--   Implement a track simplication algorithm or simply remove duplicated points,
+-   Implement a track simplification algorithm or simply remove duplicated points,
 -   The offset often fits in a single byte. So the value could be stored in two types: 1 or 2 bytes.
