@@ -1,6 +1,6 @@
 {
     "name": "webtrack",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Rich Geo Tracking Interchange Format Support",
     "keywords": [
         "gpx",

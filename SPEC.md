@@ -156,7 +156,7 @@ The latitude and longitude are projected in the Web/Pseudo Mecator ([EPSG:3857](
 
 If the elevation is included, all points (in the WebTrack segment) must include the elevation information. If the elevation is excluded, not a single point (in the WebTrack segment) will contain elevation data. A WebTrack segment is not equivalent to a GPX segment. Indeed, a track with partial elevation data is splitted into WebTrack segments whereas GPX segments are merged together (i.e. the [`<trkseg/>`](https://www.topografix.com/GPX/1/1/#type_trksegType "GPX <trkseg/> definition") tags in the GPX file are joined together). It means that there is a straight connection between two points even if the GPS receiver was turned off or if the GPS reception was lost in-between those two points.
 
-Similarly to the Google Polyline, points only include the offset from the previous point (except the first point), but the WebTrack format and implementations take into account the rounding effect. Indeed, rounding offset values (from float to integer) create a significant drift on a long segment, therefore, the offset is corrected based on the previous difference between the exact and the rounded offset, that is the meaning of _corrected offset_.
+Similarly to the Google Polyline, points only include the offset from the previous point (except the first point). The offset formula is based on the Mapbox & Development Seed [implementation of the Polyline](https://github.com/mapbox/polyline "JavaScript library").
 
 One WebTrack segment is defined as below:
 
@@ -192,12 +192,12 @@ One WebTrack segment is defined as below:
         </tr>
         <tr>
             <td rowspan="4">Second Point</td>
-            <td>Corrected offset in longitude from the first point</td>
+            <td>Offset in longitude from the first point</td>
             <td>int16</td>
             <td><code>0xFF81</code> (-127 m)</td>
         </tr>
         <tr>
-            <td>Corrected offset in latitude from the first point</td>
+            <td>Offset in latitude from the first point</td>
             <td>int16</td>
             <td><code>0x0039</code> (57 m)</td>
         </tr>
@@ -219,12 +219,12 @@ One WebTrack segment is defined as below:
         </tr>
         <tr>
             <td rowspan="4">Last Point</td>
-            <td>Corrected offset in longitude from the previous point</td>
+            <td>Offset in longitude from the previous point</td>
             <td>int16</td>
             <td><code>0x007C</code> (124 m)</td>
         </tr>
         <tr>
-            <td>Corrected offset in latitude from the previous point</td>
+            <td>Offset in latitude from the previous point</td>
             <td>int16</td>
             <td><code>0xFFAF</code> (-81 m)</td>
         </tr>

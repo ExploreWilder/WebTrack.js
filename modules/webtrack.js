@@ -46,7 +46,7 @@ class WebTrack {
     #formatName: string = "webtrack-bin";
 
     /** The WebTrack format version, constant. */
-    #formatVersion: string = "0.0.1";
+    #formatVersion: string = "0.1.0";
 
     /** A list of segments in the WebTrack format. */
     #reformatedTracks: Array<Segment> = [];
@@ -596,8 +596,6 @@ class WebTrack {
 
         // Points from segments:
 
-        let errorDeltaX = 0,
-            errorDeltaY = 0;
         this.#reformatedTracks.forEach((segment) => {
             let prevPoint = null;
             segment.points.forEach((point) => {
@@ -607,13 +605,12 @@ class WebTrack {
 
                     // cumulated distance:
                     this._wUint16(Math.round(point[2] / 10));
-
-                    errorDeltaX = 0;
-                    errorDeltaY = 0;
                 } else {
-                    // offset with drift correction
-                    const deltaX = point[0] - prevPoint[0] + errorDeltaX,
-                        deltaY = point[1] - prevPoint[1] + errorDeltaY;
+                    // rounding positions before diff to avoid drift
+                    const deltaX =
+                            Math.round(point[0]) - Math.round(prevPoint[0]),
+                        deltaY =
+                            Math.round(point[1]) - Math.round(prevPoint[1]);
 
                     const minDelta = -32768,
                         maxDelta = 32767;
@@ -627,11 +624,6 @@ class WebTrack {
                     }
                     this._wInt16(Math.round(deltaX));
                     this._wInt16(Math.round(deltaY));
-
-                    // rounding positions create a drift corrected on the next point(s)
-                    errorDeltaX = deltaX - Math.round(deltaX);
-                    errorDeltaY = deltaY - Math.round(deltaY);
-
                     this._wUint16(Math.round(point[2] / 10));
                 }
                 prevPoint = point;
@@ -859,8 +851,8 @@ class WebTrack {
     }
 }
 
-//$FlowIgnore[invalid-export] tested and working
-if (typeof module !== "undefined") {
-    //$FlowIgnore[invalid-export] tested and working
+//$FlowIgnore[invalid-export]
+if (typeof module === "object" && module.exports) {
+    //$FlowIgnore[invalid-export]
     module.exports = WebTrack;
 }
