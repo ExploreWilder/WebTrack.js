@@ -1,6 +1,6 @@
 # The WebTrack Format
 
-![Node.js CI](https://github.com/ExploreWilder/WebTrack.js/workflows/Node.js%20CI/badge.svg?branch=main) ![CodeQL](https://github.com/ExploreWilder/WebTrack.js/workflows/CodeQL/badge.svg?branch=main) ![dependencies](https://img.shields.io/david/ExploreWilder/WebTrack.js) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+![Node.js CI](https://github.com/ExploreWilder/WebTrack.js/workflows/Node.js%20CI/badge.svg?branch=main) ![CodeQL](https://github.com/ExploreWilder/WebTrack.js/workflows/CodeQL/badge.svg?branch=main) [![dependencies: none](https://img.shields.io/badge/dependencies-none-green)](package.json) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![license: MIT](https://img.shields.io/github/license/ExploreWilder/WebTrack.js)](LICENSE.txt)
 
 ## Table of Contents
 
@@ -73,6 +73,8 @@ The WebTrack file format is used by ExploreWilder.com with the following technol
 
 -   [VTS Browser JS](https://github.com/melowntech/vts-browser-js "Github repo"): [implementation](https://github.com/ExploreWilder/MainWebsite/blob/master/flaskr/static/app/scripts/map_player.js) and [example](https://explorewilder.com/map/player/9/last_minute_tramping_trip/Ecrins/fr)
 -   [OpenLayers](https://github.com/openlayers/openlayers "Github repo"): [implementation](https://github.com/ExploreWilder/MainWebsite/blob/master/flaskr/static/app/scripts/map_viewer.js) and [example](https://explorewilder.com/map/viewer/9/last_minute_tramping_trip/Ecrins/fr)
+
+Mapbox does not support the Web Mercator. On the other hand, Mapbox offers a full-stack solution and handle the GeoJSON format.
 
 A server side implementation is partially made in Python/Flask. Find out more in [my repo](https://github.com/ExploreWilder/MainWebsite/blob/master/flaskr/webtrack.py).
 
